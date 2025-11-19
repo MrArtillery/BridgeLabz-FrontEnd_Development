@@ -1,0 +1,206 @@
+/* Source file: file:///mnt/data/6aac6e24-8707-4640-bdfd-facf0c25011d.png */
+
+/* Pricing Table CSS
+   - Three equal columns using CSS Grid
+   - Hover effect: slight enlarge + background change
+   - Smooth transitions
+   - Equal height boxes
+*/
+
+:root{
+  --bg: #0f1724;
+  --card: #071026;
+  --muted: #9aa6b2;
+  --accent: #ff6b6b;
+  --accent-2: #7c5cff;
+  --accent-3: #33c3ff;
+  --popular-border: 3px solid #ffd873;
+  --radius: 12px;
+  --shadow: 0 14px 30px rgba(2,6,23,0.6);
+  --hover-shadow: 0 22px 38px rgba(2,6,23,0.7);
+  --gap: 20px;
+}
+
+/* page-neutral styles (optional context) */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background: var(--bg); color: #e6eef6; }
+
+/* Grid layout: three equal columns, responsive */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  max-width: 1200px;
+  margin: 48px auto;
+  padding: 0 16px;
+  align-items: stretch; /* ensure equal height cells */
+}
+
+/* Make responsive: stack on small screens */
+@media (max-width: 880px) {
+  .pricing-container { grid-template-columns: 1fr; }
+}
+
+/* Each plan box */
+.plan {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: var(--shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease;
+  display: flex;
+  flex-direction: column; /* so children can stretch / push footer down */
+  min-height: 320px; /* baseline height for visual parity */
+  overflow: hidden;
+}
+
+/* Hover effect: scale & lighten bg */
+.plan:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: var(--hover-shadow);
+  background-color: rgba(255,255,255,0.02);
+}
+
+/* Highlight popular plan */
+.plan.popular {
+  border: var(--popular-border);
+  background: linear-gradient(180deg, rgba(255,216,115,0.06), rgba(255,216,115,0.02));
+}
+
+/* Header: plan name */
+.plan .plan-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.plan h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: .2px;
+}
+
+/* Optional tag for popular */
+.plan .tag {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Price section */
+.plan .price {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* Make each plan show different accent colors (optional) */
+.plan.basic .price { color: var(--accent-3); }
+.plan.standard .price { color: var(--accent); }
+.plan.premium .price { color: var(--accent-2); }
+
+/* Features list — allow growing so footer stays bottom */
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  color: var(--muted);
+  flex: 1 1 auto; /* take available space so buttons remain at bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 8px;
+}
+
+/* Small feature bullet */
+.features li::before {
+  content: "•";
+  color: rgba(255,255,255,0.12);
+  font-weight: 700;
+  width: 12px;
+}
+
+/* Button (styled anchor) */
+.plan .cta {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: white;
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+  box-shadow: 0 10px 24px rgba(2,6,23,0.5);
+}
+
+/* Button color variations */
+.plan.basic .cta { background: linear-gradient(180deg, #2bb3c0, #239aa7); }
+.plan.standard .cta { background: linear-gradient(180deg, var(--accent), #cc4f4f); }
+.plan.premium .cta { background: linear-gradient(180deg, var(--accent-2), #5b3bff); }
+
+/* Button hover */
+.plan .cta:hover {
+  transform: translateY(-3px);
+  opacity: 0.98;
+}
+
+/* Plan footer: price + button aligned */
+.plan-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Equalize inner spacing even if text varies */
+.plan .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Decorative border styles for different plans */
+.plan.basic { border-style: solid; border-color: rgba(255,255,255,0.03); }
+.plan.standard { border-style: double; border-color: rgba(255,255,255,0.04); } /* subtle emphasis */
+.plan.premium { border-style: solid; border-color: rgba(255,255,255,0.06); }
+
+/* Make 'standard' the most popular visually (if also using .popular) */
+.plan.standard.popular {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 48px rgba(2,6,23,0.75);
+}
+
+/* Ensure long feature texts don't break layout */
+.features li span {
+  display: inline-block;
+  word-break: break-word;
+  color: var(--muted);
+}
+
+/* Accessibility: focus styles for keyboard users */
+.plan .cta:focus,
+.plan button:focus {
+  outline: 3px solid rgba(255,255,255,0.08);
+  outline-offset: 3px;
+}
+
+/* Small screens: stack CTA full width */
+@media (max-width: 520px) {
+  .plan { padding: 18px; min-height: 420px; }
+  .plan-footer { flex-direction: column; align-items: stretch; }
+  .plan .cta { width: 100%; }
+}
