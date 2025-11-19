@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-wrap">
+    <form class="contact-form" action="#" method="post" novalidate>
+      <h1>Contact Us</h1>
+
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" placeholder="Your full name" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+      <label for="subject">Subject</label>
+      <input id="subject" name="subject" type="text" placeholder="Subject of your message">
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+
+      <div class="actions">
+        <button type="reset" class="btn secondary">Reset</button>
+        <button type="submit" class="btn primary">Send Message</button>
+      </div>
+
+      <p class="hint">We will reply within 2 business days.</p>
+    </form>
+  </main>
+</body>
+</html>
