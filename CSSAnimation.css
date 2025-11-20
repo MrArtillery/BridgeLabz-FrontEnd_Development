@@ -1,0 +1,60 @@
+/* Center everything */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f172a;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.animation-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* ========== 1. Moving Box ========== */
+.box {
+  width: 100px;
+  padding: 10px;
+  background: #38bdf8;
+  border-radius: 6px;
+  animation: slide 3s ease-in-out infinite alternate;
+}
+
+@keyframes slide {
+  from { transform: translateX(-60px); }
+  to   { transform: translateX(60px); }
+}
+
+/* ========== 2. Bouncing Ball ========== */
+.ball {
+  width: 40px;
+  height: 40px;
+  background: #f472b6;
+  border-radius: 50%;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+/* ========== 3. Color Changing Text ========== */
+.color-text {
+  font-size: 22px;
+  animation: colorChange 2s ease-in-out infinite alternate;
+  animation-delay: 0.5s;
+}
+
+@keyframes colorChange {
+  0%   { color: #f87171; }
+  50%  { color: #a78bfa; }
+  100% { color: #4ade80; }
+}
