@@ -1,0 +1,36 @@
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;font-family:system-ui,Arial;background:#111;color:#fff}
+.top, .foot{position:fixed;left:0;right:0;padding:12px 18px;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:10}
+.top{top:0}
+.foot{bottom:0;text-align:center;font-size:0.9rem}
+
+/* main sections sit between header/footer */
+main{padding-top:56px;padding-bottom:48px}
+
+/* full-height sections */
+section{min-height:calc(50vh);display:flex;align-items:center;justify-content:center;padding:30px}
+
+/* linear gradient with background-attachment fixed for parallax-like feel */
+.linear{
+  background: linear-gradient(135deg,#ff7a7a 0%, #ffb86b 60%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* radial gradient section */
+.radial{
+  background: radial-gradient(circle at 20% 20%, #7dd3fc 0%, #60a5fa 30%, #0ea5a9 100%);
+}
+
+/* content box styling */
+.content{max-width:900px;text-align:center;padding:18px;background:rgba(0,0,0,0.25);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.content h1{margin-bottom:8px;font-size:1.6rem}
+.content p{margin:0 0 10px;color:rgba(255,255,255,0.9)}
+.illus{width:110px;height:auto;border-radius:8px;border:2px solid rgba(255,255,255,0.08);display:block;margin:12px auto 0;box-shadow:0 8px 20px rgba(2,6,23,0.5)}
+
+/* responsive */
+@media (max-width:640px){
+  .content{padding:14px}
+  .content h1{font-size:1.25rem}
+  .illus{width:90px}
+}
