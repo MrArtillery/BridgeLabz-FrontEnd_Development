@@ -1,0 +1,43 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial, sans-serif;
+  background:#f0f4f8;
+}
+
+.wrapper{
+  display:flex;
+  gap:30px;
+}
+
+.item{
+  position:relative;
+  font-size:22px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* Tooltip box */
+.tip{
+  position:absolute;
+  bottom:130%;
+  left:50%;
+  transform:translateX(-50%);
+  background:#0f172a;
+  color:white;
+  padding:6px 10px;
+  border-radius:6px;
+  white-space:nowrap;
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.3s ease-in-out;
+}
+
+/* Show tooltip on hover */
+.item:hover .tip{
+  opacity:1;
+}
