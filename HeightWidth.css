@@ -1,0 +1,45 @@
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#eef2f7;
+  font-family:Arial;
+}
+
+.wrapper{
+  display:flex;
+  gap:20px;
+}
+
+/* Common box style */
+.box{
+  padding:10px;
+  color:#fff;
+  border-radius:8px;
+  text-align:center;
+}
+
+/* Box 1: fixed px */
+.b1{
+  width:200px;
+  height:150px;
+  background:#2563eb;
+}
+
+/* Box 2: percentage width + min-height + overflow */
+.b2{
+  width:60%;
+  min-height:20vh;
+  background:#f97316;
+  overflow:hidden;
+}
+
+/* Box 3: em width + max-width */
+.b3{
+  width:15em;
+  max-width:250px;
+  background:#10b981;
+}
