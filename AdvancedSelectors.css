@@ -1,0 +1,92 @@
+/* --- Basic layout --- */
+body { background:#f7fafc; color:#0f1724; margin:0; padding:0; }
+main { padding:18px; }
+
+/* ---------------------
+   Attribute selectors
+   --------------------- */
+
+/* Select input elements where type="text" */
+input[type="text"] {
+  padding:8px 10px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+/* Select anchors whose href starts with "https" */
+a[href^="https"] {
+  color: #0ea5a9; /* secure link color */
+  font-weight:700;
+}
+
+/* ---------------------
+   Pseudo-classes
+   --------------------- */
+
+/* :focus on the text input */
+input[type="text"]:focus {
+  outline:none;
+  border-color:#2563eb;
+  box-shadow:0 6px 18px rgba(37,99,235,0.12);
+}
+
+/* :hover for list items */
+.items li:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.05);
+}
+
+/* nth-child to style even and the 3rd item */
+.items li:nth-child(even) { background:#eef2ff; }
+.items li:nth-child(3) { font-style:italic; }
+
+/* ---------------------
+   Pseudo-elements
+   --------------------- */
+
+/* Add a decorative bullet before each list item */
+.items li::before {
+  content: "•";
+  display:inline-block;
+  width:18px;
+  margin-right:6px;
+  color:#94a3b8;
+}
+
+/* After the lead item, insert a small label */
+.items li.lead::after {
+  content: " — Team Lead";
+  color:#ef4444;
+  font-weight:600;
+  margin-left:8px;
+}
+
+/* ---------------------
+   Combinators
+   (>, +, ~, descendant)
+   --------------------- */
+
+/* Child combinator: style img that is a direct child of li */
+.items > li > img { border-radius:6px; display:block; }
+
+/* Adjacent sibling: style the LI immediately after any LI that has "Sibling 1" text */
+.items li:nth-child(6) + li { border-left:3px solid #fde68a; padding-left:8px; }
+
+/* General sibling: style any LI following the 6th one */
+.items li:nth-child(6) ~ li { color:#475569; }
+
+/* Descendant: style anchors anywhere inside .items (descendant selector) */
+.items a { text-decoration:none; color:#0f1724; }
+
+/* But secure links (href^="https") have stronger styling via attribute selector above */
+
+/* ---------------------
+   Small visual helpers
+   --------------------- */
+.items { list-style:none; padding:12px; margin:14px 0; display:grid; gap:8px; max-width:560px; }
+.note { color:#6b7280; font-size:0.9rem; margin-top:8px; }
+
+/* keyboard accessibility: show focus on list items when tabbed (using :focus-within) */
+.items li:focus-within { outline:2px dashed rgba(37,99,235,0.18); }
